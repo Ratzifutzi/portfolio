@@ -1,19 +1,11 @@
 'use client';
 
-import {
-	AbsoluteCenter,
-	Box,
-	Button,
-	Card,
-	Center,
-	HStack,
-	Separator,
-} from '@chakra-ui/react';
+import { AbsoluteCenter, Text } from '@chakra-ui/react';
 
 export default function Home() {
 	return (
 		<AbsoluteCenter>
-			<h1>Hello world</h1>
+			<Text color={'danger'}>Hello World</Text>
 		</AbsoluteCenter>
 	);
 }
