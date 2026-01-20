@@ -1,18 +1,14 @@
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
-    theme: {
-    tokens: {
-      colors: {
-        red: { value: "#EE0F0F" },
-      },
-    },
+  theme: {
     semanticTokens: {
       colors: {
-        danger: { value: "{colors.red}" },
+        primary: { value: "{colors.green.focusRing}" },
       },
     },
   },
 })
+
 
 export default createSystem(defaultConfig, config)
