@@ -70,7 +70,14 @@ export default function Footer() {
 				justifyContent="space-between"
 				alignItems="center"
 			>
-				<Box gap={1} display={'flex'} flexDir={'column'} flexGrow={1}>
+				<Box
+					gap={1}
+					display={'flex'}
+					flexDir={'column'}
+					flexGrow={1}
+					order={1}
+					className="Social Links"
+				>
 					<SocialLink
 						href="https://github.com/Ratzifutzi/"
 						text="@Ratzifutzi"
@@ -92,7 +99,17 @@ export default function Footer() {
 						icon={<LuMail />}
 					/>
 				</Box>
-				<Box gap={1} textAlign={'center'} flexGrow={1}>
+
+				<Box
+					gap={1}
+					textAlign={'center'}
+					flexGrow={1}
+					className="CopyrightNotice"
+					order={{
+						base: 3,
+						md: 2,
+					}}
+				>
 					<Text color={'fg'}>All rights reserved.</Text>
 					<Text color={'fg'}>Made with ❤️ in NextJS</Text>
 					<br />
@@ -105,10 +122,16 @@ export default function Footer() {
 						</Text>
 					</VStack>
 				</Box>
+
 				<Box
+					className="OSInfo"
 					textAlign={{
 						base: 'center',
 						md: 'right',
+					}}
+					order={{
+						base: 2,
+						md: 3,
 					}}
 					display={'flex'}
 					justifyContent={'right'}
