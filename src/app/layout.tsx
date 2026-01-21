@@ -1,6 +1,8 @@
 import { Provider } from '@/components/ui/provider';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { Shell } from '@/components/Shell';
+import '@fontsource-variable/lexend';
 
 export const metadata: Metadata = {
 	title: 'Joshua Schmidt',
@@ -20,7 +22,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body>
-				<Provider>{children}</Provider>
+				<Provider>
+					<Shell>{children}</Shell>
+				</Provider>
 			</body>
 		</html>
 	);
