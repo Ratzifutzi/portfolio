@@ -18,7 +18,11 @@ export default function Content({ children }: { children: ReactNode }) {
 	const pathname = usePathname();
 
 	return (
-		<Box key={pathname} animation={`${fadeSlide} 0.4s ease-out`}>
+		<Box
+			key={pathname}
+			animation={`${fadeSlide} 0.4s ease-out`}
+			minH={'calc(100% - 50px)'}
+		>
 			{children}
 		</Box>
 	);

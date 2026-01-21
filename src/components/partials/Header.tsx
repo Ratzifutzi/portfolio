@@ -79,7 +79,7 @@ export default function Header() {
 				position={'absolute'}
 				left={0}
 				height={'1px'}
-				bg={'border.muted'}
+				bg={'border'}
 			></Box>
 			<Box className="spacer" mb={2} />
 		</>

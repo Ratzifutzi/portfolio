@@ -4,6 +4,7 @@ import { Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import Header from './partials/Header';
 import Content from './partials/Content';
+import Footer from './partials/Footer';
 
 export function Shell({ children }: { children: ReactNode }) {
 	return (
@@ -20,10 +21,10 @@ export function Shell({ children }: { children: ReactNode }) {
 				xl: '1100px',
 			}}
 			px={{ base: 4, sm: 6, md: 8 }}
-			pb={{ base: 10, md: 16 }}
 		>
 			<Header />
 			<Content>{children}</Content>
+			<Footer />
 		</Box>
 	);
 }
