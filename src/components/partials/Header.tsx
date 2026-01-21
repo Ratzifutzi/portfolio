@@ -40,14 +40,27 @@ export default function Header() {
 							<Text fontSize={'lg'} fontWeight={400} color={'primary'}>
 								/
 							</Text>
-							<Text fontSize={'lg'} fontWeight={500} color={'primary'}>
+							<Text
+								fontSize={'lg'}
+								fontWeight={500}
+								display={{
+									sm: 'flex',
+									base: 'none',
+								}}
+								color={'primary'}
+							>
 								{path}
 							</Text>
 						</HStack>
 					</Link>
 				</HStack>
 
-				<HStack gap={3}>
+				<HStack
+					gap={{
+						base: 2,
+						sm: 3,
+					}}
+				>
 					<NavLink href="/">Home</NavLink>
 					<NavLink href="/work">Work</NavLink>
 					<NavLink href="/about">About</NavLink>
