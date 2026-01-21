@@ -1,5 +1,6 @@
-import { Link, Box, Grid, Text } from '@chakra-ui/react';
+import { Link, Box, Grid, Text, HStack, VStack } from '@chakra-ui/react';
 import { SiDiscord, SiGithub } from '@icons-pack/react-simple-icons';
+import { MoveUpRightIcon } from 'lucide-react';
 import { ReactNode } from 'react';
 import { IconType } from 'react-icons';
 import { LuMail } from 'react-icons/lu';
@@ -25,7 +26,20 @@ function SocialLink({
 			>
 				{icon}
 			</Box>
-			<Text fontWeight={400}>{text}</Text>
+			<HStack
+				gap={1}
+				_hover={{ color: 'primary' }}
+				transition={'color 0.1s ease'}
+			>
+				<Text
+					fontWeight={400}
+					textDecoration={'underline'}
+					textUnderlineOffset={3}
+				>
+					{text}
+				</Text>
+				<MoveUpRightIcon width={'15px'} />
+			</HStack>
 		</Link>
 	);
 }
@@ -64,15 +78,31 @@ export default function Footer() {
 						icon={<LuMail />}
 					/>
 				</Box>
-				<Box h="20" gap={1}>
-					<Text color={'fg'} textAlign={'center'}>
-						All rights reserved.
-					</Text>
-					<Text color={'fg'} textAlign={'center'}>
-						Made with ❤️ in NextJS
-					</Text>
+				<Box h="20" gap={1} textAlign={'center'}>
+					<Text color={'fg'}>All rights reserved.</Text>
+					<Text color={'fg'}>Made with ❤️ in NextJS</Text>
+					<br />
+					<VStack gap={0} fontSize={'x-small'}>
+						<Text color={'fg.subtle'} fontWeight={300}>
+							© 2026, Joshua Schmidt
+						</Text>
+						<Text color={'fg.subtle'} fontWeight={300}>
+							All rights reserved.
+						</Text>
+					</VStack>
 				</Box>
-				<Box h="20" />
+				<Box
+					h="20"
+					textAlign={'right'}
+					display={'flex'}
+					justifyContent={'right'}
+					flexDir={'column'}
+				>
+					<Text>This website is open source.</Text>
+					<Text>You can view the source code</Text>
+					<Text>on the public GitHub repository,</Text>
+					<Text>which is linked on my Account.</Text>
+				</Box>
 			</Grid>
 		</Box>
 	);
