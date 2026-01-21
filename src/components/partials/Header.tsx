@@ -1,9 +1,10 @@
 'use client';
 
-import { Box, Container, HStack, Text } from '@chakra-ui/react';
+import { Box, Button, Container, HStack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import NavLink from './NavLink';
+import { LucideArrowRight } from 'lucide-react';
 
 export default function Header() {
 	const pathname = usePathname();
@@ -50,6 +51,12 @@ export default function Header() {
 					<NavLink href="/">Home</NavLink>
 					<NavLink href="/work">Work</NavLink>
 					<NavLink href="/about">About</NavLink>
+					<NavLink href="/contact">
+						<Button size={'xs'} bg={'primary'}>
+							Contact
+							<LucideArrowRight />
+						</Button>
+					</NavLink>
 				</HStack>
 			</Box>
 			<Box

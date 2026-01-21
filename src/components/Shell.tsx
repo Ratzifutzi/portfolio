@@ -1,22 +1,17 @@
 'use client';
 
 import { Box } from '@chakra-ui/react';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import Header from './partials/Header';
-import { usePathname } from 'next/navigation';
+import Content from './partials/Content';
 
 export function Shell({ children }: { children: ReactNode }) {
-	useEffect(() => {
-		console.log('Path changed');
-	}, [usePathname()]);
-
 	return (
 		<Box
 			height={'dvh'}
 			mx="auto"
 			as={'main'}
 			w={'full'}
-			pt={1}
 			maxW={{
 				base: '100%',
 				sm: '640px',
@@ -28,7 +23,7 @@ export function Shell({ children }: { children: ReactNode }) {
 			pb={{ base: 10, md: 16 }}
 		>
 			<Header />
-			{children}
+			<Content>{children}</Content>
 		</Box>
 	);
 }
