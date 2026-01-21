@@ -59,6 +59,7 @@ export default function Header() {
 					gap={{
 						base: 2,
 						sm: 3,
+						lg: 5,
 					}}
 				>
 					<NavLink href="/">Home</NavLink>
