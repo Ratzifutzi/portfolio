@@ -4,7 +4,7 @@ const config = defineConfig({
 	theme: {
 		semanticTokens: {
 			colors: {
-				primary: { value: '{colors.teal.focusRing}' },
+				primary: { value: {base: '{colors.teal.solid}', _dark: '{colors.teal.focusRing}'} },
 			},
 		},
 		tokens: {
