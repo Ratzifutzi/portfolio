@@ -55,8 +55,22 @@ export default function Footer() {
 				height={'1px'}
 				bg={'border'}
 			/>
-			<Grid templateColumns="repeat(3, 1fr)" gap="6" pt={'15px'} pb={'55px'}>
-				<Box h="20" gap={1} display={'flex'} flexDir={'column'}>
+			<Box
+				pt="15px"
+				pb="24px"
+				flexDir={{
+					base: 'column',
+					md: 'row',
+				}}
+				gap={{
+					base: '30px',
+					md: 0,
+				}}
+				display="flex"
+				justifyContent="space-between"
+				alignItems="center"
+			>
+				<Box gap={1} display={'flex'} flexDir={'column'} flexGrow={1}>
 					<SocialLink
 						href="https://github.com/Ratzifutzi/"
 						text="@Ratzifutzi"
@@ -78,7 +92,7 @@ export default function Footer() {
 						icon={<LuMail />}
 					/>
 				</Box>
-				<Box h="20" gap={1} textAlign={'center'}>
+				<Box gap={1} textAlign={'center'} flexGrow={1}>
 					<Text color={'fg'}>All rights reserved.</Text>
 					<Text color={'fg'}>Made with ❤️ in NextJS</Text>
 					<br />
@@ -92,18 +106,21 @@ export default function Footer() {
 					</VStack>
 				</Box>
 				<Box
-					h="20"
-					textAlign={'right'}
+					textAlign={{
+						base: 'center',
+						md: 'right',
+					}}
 					display={'flex'}
 					justifyContent={'right'}
 					flexDir={'column'}
+					flexGrow={1}
 				>
 					<Text>This website is open source.</Text>
 					<Text>You can view the source code</Text>
 					<Text>on the public GitHub repository,</Text>
 					<Text>which is linked on my Account.</Text>
 				</Box>
-			</Grid>
+			</Box>
 		</Box>
 	);
 }
