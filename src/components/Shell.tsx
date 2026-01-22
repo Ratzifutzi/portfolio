@@ -1,10 +1,11 @@
 'use client';
 
 import { Box } from '@chakra-ui/react';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import Header from './partials/Header';
 import Content from './partials/Content';
 import Footer from './partials/Footer';
+import { Router } from 'next/router';
 
 export function Shell({ children }: { children: ReactNode }) {
 	return (

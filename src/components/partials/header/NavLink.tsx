@@ -1,3 +1,5 @@
+'use client';
+
 import { Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -27,6 +29,7 @@ function NavLink({ href, children }: NavLinkProps) {
 					transition:
 						'text-decoration-thickness 0.3s ease, text-decoration-color 0.3s ease',
 				}}
+				onClick={() => {}}
 			>
 				{children}
 			</Text>

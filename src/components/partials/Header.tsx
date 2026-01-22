@@ -3,7 +3,7 @@
 import { Box, Button, Container, HStack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import NavLink from './NavLink';
+import NavLink from './header/NavLink';
 import { LucideArrowRight } from 'lucide-react';
 
 export default function Header() {

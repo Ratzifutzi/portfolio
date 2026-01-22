@@ -16,7 +16,7 @@ function SocialLink({
 	icon: ReactNode;
 }) {
 	return (
-		<Link href={href} gap={2} display={'flex'}>
+		<Link href={href} gap={2} display={'flex'} width={'fit-content'}>
 			<Box
 				height={'20px'}
 				width={'20px'}
@@ -27,7 +27,7 @@ function SocialLink({
 				{icon}
 			</Box>
 			<HStack
-				gap={1}
+				gap={'5px'}
 				_hover={{ color: 'primary' }}
 				transition={'color 0.1s ease'}
 			>
@@ -110,7 +110,6 @@ export default function Footer() {
 						md: 2,
 					}}
 				>
-					<Text color={'fg'}>All rights reserved.</Text>
 					<Text color={'fg'}>Made with ❤️ in NextJS</Text>
 					<br />
 					<VStack gap={0} fontSize={'x-small'}>
