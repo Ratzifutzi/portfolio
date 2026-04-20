@@ -1,8 +1,7 @@
-import { Link, Box, Grid, Text, HStack, VStack } from '@chakra-ui/react';
+import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';
 import { SiDiscord, SiGithub } from '@icons-pack/react-simple-icons';
 import { MoveUpRightIcon } from 'lucide-react';
 import { ReactNode } from 'react';
-import { IconType } from 'react-icons';
 import { LuMail } from 'react-icons/lu';
 import { SiLinkedin } from 'react-icons/si';
 

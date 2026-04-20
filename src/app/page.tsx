@@ -1,7 +1,18 @@
 'use client';
 
-import { AbsoluteCenter, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
 export default function Home() {
-	return <Text fontWeight={500}>Sphinx of black quartz, judge my vow.</Text>;
+	return (
+		<>
+			<Text fontWeight={500}>Sphinx of black quartz, judge my vow.</Text>
+			<Box
+				width={'200px'}
+				height={'200px'}
+				color={'primary'}
+				backgroundRepeat={'repeat'}
+				backgroundImage={'url(/hero/pattern.svg)'}
+			></Box>
+		</>
+	);
 }

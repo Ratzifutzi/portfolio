@@ -1,8 +1,8 @@
+import { Shell } from '@/components/Shell';
 import { Provider } from '@/components/ui/provider';
+import '@fontsource-variable/lexend';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Shell } from '@/components/Shell';
-import '@fontsource-variable/lexend';
 
 export const metadata: Metadata = {
 	title: 'Joshua Schmidt',
