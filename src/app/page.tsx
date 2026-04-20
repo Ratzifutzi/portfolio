@@ -10,8 +10,6 @@ export default function Home() {
 				width={'200px'}
 				height={'200px'}
 				color={'primary'}
-				backgroundRepeat={'repeat'}
-				backgroundImage={'url(/hero/pattern.svg)'}
 			></Box>
 		</>
 	);
