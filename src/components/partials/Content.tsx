@@ -22,6 +22,7 @@ export default function Content({ children }: { children: ReactNode }) {
 			key={pathname}
 			animation={`${fadeSlide} 0.4s ease-out`}
 			minH={'calc(100% - 50px)'}
+			h={"min-content"}
 		>
 			{children}
 		</Box>
