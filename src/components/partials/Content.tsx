@@ -19,10 +19,13 @@ export default function Content({ children }: { children: ReactNode }) {
 
 	return (
 		<Box
+			className="content"
 			key={pathname}
 			animation={`${fadeSlide} 0.4s ease-out`}
-			minH={'calc(100% - 50px)'}
-			h={"min-content"}
+			h={'calc(100% - 90px)'}
+			minH={'calc(100% - 90px)'}
+			w="full"
+			display="block"
 		>
 			{children}
 		</Box>

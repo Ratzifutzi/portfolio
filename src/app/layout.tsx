@@ -1,9 +1,9 @@
 import { Shell } from '@/components/Shell';
 import { Provider } from '@/components/ui/provider';
-import { Box, Center, HStack, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import '@fontsource-variable/lexend';
-import { ConstructionIcon } from 'lucide-react';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,19 +23,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head />
 			<body>
+				<Script
+					strategy="afterInteractive"
+					src="https://cdn.privatecaptcha.com/widget/js/privatecaptcha.js"
+				/>
 				<Provider>
-					<Box width={'full'} height={'33px'} bg={'orange'}>
-						<Center height={'full'}>
-							<HStack color={'black'}>
-								<ConstructionIcon />
-								<Text>
-									Website is currently work in progress! Please contact me
-									directly for my portfolio and/or any sort of questions!
-								</Text>
-								<ConstructionIcon />
-							</HStack>
-						</Center>
+					<Box width={'full'} bg={'orange'} textAlign={'center'}>
+						<Text color={'black'} pt={1} pb={1}>
+							Website is currently work in progress! Please contact me directly
+							for my portfolio and/or any sort of questions!
+						</Text>
 					</Box>
 					<Shell>{children}</Shell>
 				</Provider>

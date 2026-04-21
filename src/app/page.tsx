@@ -1,13 +1,14 @@
 'use client';
 
-import { Box, HStack, Text, VStack } from '@chakra-ui/react';
+import { Box, HStack, Spacer, Text, VStack } from '@chakra-ui/react';
 import Image from 'next/image';
 import swissFlagIcon from '../../public/switzerland.svg';
 
 export default function Home() {
 	return (
 		<>
-			<Box width={'100px'} height={'5px'} bg={'fg'} mt={'75px'} mb={5} />
+			<Spacer height={'175px'} />
+			<Box width={'100px'} height={'5px'} bg={'fg'} mb={5} />
 			<VStack
 				w={'max'}
 				fontSize={'5xl'}

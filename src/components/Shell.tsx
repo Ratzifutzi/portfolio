@@ -9,6 +9,7 @@ import Header from './partials/Header';
 export function Shell({ children }: { children: ReactNode }) {
 	return (
 		<Box
+			className="shell"
 			height={'dvh'}
 			mx="auto"
 			as={'main'}
