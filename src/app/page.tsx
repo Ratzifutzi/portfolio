@@ -8,13 +8,25 @@ export default function Home() {
 	return (
 		<>
 			<Spacer height={'175px'} />
-			<Box width={'100px'} height={'5px'} bg={'fg'} mb={5} />
+			<Box
+				justifyContent={{ base: 'center', sm: 'start' }}
+				width={'full'}
+				display={'flex'}
+			>
+				<Box
+					width={{ sm: '100px', base: '50%' }}
+					height={'5px'}
+					bg={'fg'}
+					mb={5}
+				/>
+			</Box>
 			<VStack
 				w={'max'}
-				fontSize={'5xl'}
+				fontSize={{ sm: '5xl', base: '3xl' }}
 				lineHeight={1}
-				textAlign={'left'}
-				align={'start'}
+				textAlign={{ base: 'center', sm: 'left' }}
+				align={{ base: 'center', sm: 'start' }}
+				width={'full'}
 				gap={0}
 			>
 				<HStack>
@@ -30,7 +42,13 @@ export default function Home() {
 				</HStack>
 			</VStack>
 
-			<HStack mt={5} fontSize={'2xl'}>
+			<HStack
+				mt={{ base: 3, sm: 5 }}
+				fontSize={{ base: 'md', sm: '2xl' }}
+				textAlign={{ base: 'center', sm: 'left' }}
+				justifyContent={{ base: 'center', sm: 'start' }}
+				width={'full'}
+			>
 				<Box height={'25px'} overflow={'hidden'} borderRadius={'sm'}>
 					<Image
 						src={swissFlagIcon}
