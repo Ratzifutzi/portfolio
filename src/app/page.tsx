@@ -1,13 +1,13 @@
 'use client';
 
-import { Box, HStack, Spacer, Text, VStack } from '@chakra-ui/react';
+import { Box, HStack, Text, VStack } from '@chakra-ui/react';
 import Image from 'next/image';
 import swissFlagIcon from '../../public/switzerland.svg';
 
 export default function Home() {
 	return (
 		<>
-			<Spacer height={'175px'} />
+			<Box height={'175px'} />
 			<Box
 				justifyContent={{ base: 'center', sm: 'start' }}
 				width={'full'}

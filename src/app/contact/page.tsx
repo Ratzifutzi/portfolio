@@ -2,6 +2,7 @@
 
 import { ContactFormInterface } from '@/interfaces/forms/ContactFormInterface';
 import {
+	Alert,
 	Box,
 	Button,
 	Card,
@@ -53,7 +54,7 @@ export default function Home() {
 
 	return (
 		<Flex
-			h={'full'}
+			flexGrow={1}
 			width={'full'}
 			justifyContent={'center'}
 			alignItems={{ base: 'start', lg: 'center' }}
@@ -68,6 +69,16 @@ export default function Home() {
 				</Card.Header>
 				<form onSubmit={onSubmit}>
 					<Card.Body>
+						<Alert.Root mb={5} colorPalette={'orange'}>
+							<Alert.Indicator />
+							<Alert.Content>
+								<Alert.Title>Work in progress</Alert.Title>
+								<Alert.Description>
+									This form is not implemented yet. All responses will not be
+									saved nor recorded.
+								</Alert.Description>
+							</Alert.Content>
+						</Alert.Root>
 						<Stack gap="4" w="full">
 							<HStack>
 								<Field.Root

@@ -22,10 +22,10 @@ export default function Content({ children }: { children: ReactNode }) {
 			className="content"
 			key={pathname}
 			animation={`${fadeSlide} 0.4s ease-out`}
-			h={'calc(100% - 90px)'}
 			minH={'calc(100% - 90px)'}
 			w="full"
-			display="block"
+			display="flex"
+			flexDirection="column"
 		>
 			{children}
 		</Box>

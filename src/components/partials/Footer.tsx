@@ -45,7 +45,7 @@ function SocialLink({
 
 export default function Footer() {
 	return (
-		<Box width={'full'} height={30}>
+		<Box width={'full'} height={30} mt={5}>
 			<Box
 				className="separator"
 				width={'100dvw'}
