@@ -9,6 +9,9 @@ declare global {
 			NEXT_PUBLIC_PRIVATE_CAPTCHA_SITEKEY: string;
 			PRIVATE_CAPTCHA_KEY: string;
 			NEXT_PUBLIC_REQUIRE_CAPTCHA: 'true' | 'false';
+
+			// Etc
+			MAINTENANCE: 'true' | 'false';
 		}
 	}
 }

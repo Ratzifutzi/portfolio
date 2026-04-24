@@ -1,3 +1,4 @@
+import { Maintenance } from '@/components/Maintenance';
 import { Shell } from '@/components/Shell';
 import { Provider } from '@/components/ui/provider';
 import { Box, Text } from '@chakra-ui/react';
@@ -36,7 +37,13 @@ export default function RootLayout({
 							for my portfolio and/or any sort of questions!
 						</Text>
 					</Box>
-					<Shell>{children}</Shell>
+					{process.env.MAINTENANCE === 'false' ? (
+						<Shell>{children}</Shell>
+					) : (
+						<>
+							<Maintenance />
+						</>
+					)}
 				</Provider>
 			</body>
 		</html>
