@@ -37,12 +37,10 @@ export default function RootLayout({
 							for my portfolio and/or any sort of questions!
 						</Text>
 					</Box>
-					{process.env.MAINTENANCE === 'false' ? (
-						<Shell>{children}</Shell>
+					{process.env.MAINTENANCE === 'true' ? (
+						<Maintenance />
 					) : (
-						<>
-							<Maintenance />
-						</>
+						<Shell>{children}</Shell>
 					)}
 				</Provider>
 			</body>

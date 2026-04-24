@@ -12,6 +12,9 @@ declare global {
 
 			// Etc
 			MAINTENANCE: 'true' | 'false';
+
+			OPENROUTER_SPAM_DETECTION: 'true' | 'false';
+			OPENROUTER_APIKEY: string?;
 		}
 	}
 }
