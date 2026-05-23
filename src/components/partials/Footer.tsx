@@ -1,18 +1,21 @@
 import { Box, HStack, Link, Text, useToken, VStack } from '@chakra-ui/react';
 import { SiDiscord, SiGithub } from '@icons-pack/react-simple-icons';
-import { HeartIcon, MoveUpRightIcon } from 'lucide-react';
+import { HeartIcon, InfoIcon, MoveUpRightIcon } from 'lucide-react';
 import { ReactNode } from 'react';
 import { LuMail } from 'react-icons/lu';
 import { SiLinkedin } from 'react-icons/si';
+import { Tooltip } from '../ui/tooltip';
 
 function SocialLink({
 	href,
 	text,
 	icon,
+	tooltip,
 }: {
-	href: string;
+	href?: string;
 	text: string;
 	icon: ReactNode;
+	tooltip?: string | ReactNode;
 }) {
 	return (
 		<Link href={href} gap={2} display={'flex'} width={'fit-content'}>
@@ -37,7 +40,15 @@ function SocialLink({
 				>
 					{text}
 				</Text>
-				<MoveUpRightIcon width={'15px'} />
+				{href && <MoveUpRightIcon width={'15px'} />}
+
+				{tooltip && (
+					<Tooltip content={tooltip}>
+						<Box color={'orange'} asChild>
+							<InfoIcon size={'15px'} />
+						</Box>
+					</Tooltip>
+				)}
 			</HStack>
 		</Link>
 	);
@@ -97,6 +108,18 @@ export default function Footer() {
 					<SocialLink
 						href="mailto:contact@hyper-tech.ch"
 						text="contact@hyper-tech.ch"
+						tooltip={
+							<span>
+								Please use the contact form if you want to reach me. Only send
+								me direct E-Mails if you have any data retention and/or privacy
+								concerns. <br />
+								<br />
+								<strong>
+									I will never open any attachments, not on the contact form nor
+									in direct E-Mails.
+								</strong>
+							</span>
+						}
 						icon={<LuMail />}
 					/>
 				</Box>
@@ -153,7 +176,7 @@ export default function Footer() {
 				>
 					<Text>Legitimate Domain Aliases:</Text>
 					<Text color={'fg.muted'}>www.josc.me</Text>
-					<Text color={'fg.muted'}>www.joshua-schmidt.ch</Text>
+					<Text color={'fg.muted'}>www.joshua-schmidt.com</Text>
 					<Text color={'fg.muted'}>www.joshua-schmidt.ch</Text>
 					<Text color={'fg.muted'}>www.joshuaschmidt.ch</Text>
 				</Box>
