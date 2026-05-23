@@ -1,6 +1,6 @@
-import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';
+import { Box, HStack, Link, Text, useToken, VStack } from '@chakra-ui/react';
 import { SiDiscord, SiGithub } from '@icons-pack/react-simple-icons';
-import { MoveUpRightIcon } from 'lucide-react';
+import { HeartIcon, MoveUpRightIcon } from 'lucide-react';
 import { ReactNode } from 'react';
 import { LuMail } from 'react-icons/lu';
 import { SiLinkedin } from 'react-icons/si';
@@ -44,6 +44,8 @@ function SocialLink({
 }
 
 export default function Footer() {
+	const [primaryColor] = useToken('colors', ['primary']);
+
 	return (
 		<Box width={'full'} height={30} mt={5}>
 			<Box
@@ -93,8 +95,8 @@ export default function Footer() {
 						icon={<SiDiscord />}
 					/>
 					<SocialLink
-						href="mailto:joshua@hyper-tech.ch"
-						text="joshua@hyper-tech.ch"
+						href="mailto:contact@hyper-tech.ch"
+						text="contact@hyper-tech.ch"
 						icon={<LuMail />}
 					/>
 				</Box>
@@ -109,7 +111,20 @@ export default function Footer() {
 						md: 2,
 					}}
 				>
-					<Text color={'fg'}>Made with ❤️ in NextJS</Text>
+					<Text
+						color={'fg'}
+						display={'flex'}
+						flexDir={'row'}
+						justifyContent={'center'}
+						gap={1.5}
+					>
+						Made with
+						{<HeartIcon style={{ color: primaryColor, fill: primaryColor }} />}
+						in NextJS
+					</Text>
+					<Text fontSize={'sm'} color={'fg.muted'}>
+						Made by a human for other humans.
+					</Text>
 					<br />
 					<VStack gap={0} fontSize={'x-small'}>
 						<Text color={'fg.subtle'} fontWeight={300}>
@@ -136,10 +151,11 @@ export default function Footer() {
 					flexDir={'column'}
 					flexGrow={1}
 				>
-					<Text>This website is open source.</Text>
-					<Text>You can view the source code</Text>
-					<Text>on the public GitHub repository,</Text>
-					<Text>which is linked on my Account.</Text>
+					<Text>Legitimate Domain Aliases:</Text>
+					<Text color={'fg.muted'}>www.josc.me</Text>
+					<Text color={'fg.muted'}>www.joshua-schmidt.ch</Text>
+					<Text color={'fg.muted'}>www.joshua-schmidt.ch</Text>
+					<Text color={'fg.muted'}>www.joshuaschmidt.ch</Text>
 				</Box>
 			</Box>
 		</Box>

@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import Content from './partials/Content';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
+import { Toaster } from './ui/toaster';
 
 export function Shell({ children }: { children: ReactNode }) {
 	return (
@@ -23,6 +24,7 @@ export function Shell({ children }: { children: ReactNode }) {
 			}}
 			px={{ base: 4, sm: 6, md: 8 }}
 		>
+			<Toaster />
 			<Header />
 			<Content>{children}</Content>
 			<Footer />

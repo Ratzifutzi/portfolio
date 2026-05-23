@@ -1,5 +1,6 @@
 'use client';
 
+import { toaster } from '@/components/ui/toaster';
 import { ContactFormInterface } from '@/interfaces/forms/ContactFormInterface';
 import {
 	Alert,
@@ -27,6 +28,7 @@ export default function Home() {
 	const [submittingForm, setSubmittingForm] = useState(false);
 
 	const captchaSolution = useRef<string | null>(null);
+	const [captchaKey, setCaptchaKey] = useState(0);
 
 	const {
 		register,
@@ -35,9 +37,60 @@ export default function Home() {
 		formState: { errors },
 	} = useForm<ContactFormInterface>();
 
-	const onSubmit = handleSubmit((data) => {
-		setSubmittingForm(true);
-		console.log(data);
+	const reloadCaptcha = () => {
+		captchaSolution.current = null;
+		setCaptchaPassed(false);
+		setCaptchaKey((prev) => prev + 1);
+	};
+
+	const onSubmit = handleSubmit(async (data) => {
+		const promise = new Promise(async (resolve, reject) => {
+			setSubmittingForm(true);
+
+			try {
+				const response = await fetch('/api/contact', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				});
+
+				const result = await response.json();
+
+				if (!response.ok || !result.success) {
+					if (result.message) {
+						reject(result.message);
+					} else {
+						reject('Internal Server Error');
+					}
+				}
+
+				resolve('Message sent!');
+			} finally {
+				// Reset Captcha
+				setValue('captchaSolution', '');
+				setCaptchaPassed(false);
+				reloadCaptcha();
+
+				setSubmittingForm(false);
+			}
+		});
+
+		toaster.promise(promise, {
+			loading: {
+				title: 'Sending message...',
+			},
+			success: {
+				title: 'Message sent!',
+			},
+			error: (err) => ({
+				duration: 60_000,
+				title: 'Message not sent',
+				description: typeof err === 'string' ? err : 'Something went wrong',
+				closable: true,
+			}),
+		});
 	});
 
 	const handleCaptchaFinished = (detail: {
@@ -173,6 +226,7 @@ export default function Home() {
 									minH={'100px'}
 								>
 									<PrivateCaptcha
+										key={captchaKey}
 										siteKey={process.env.NEXT_PUBLIC_PRIVATE_CAPTCHA_SITEKEY}
 										theme="dark"
 										onFinish={handleCaptchaFinished}
