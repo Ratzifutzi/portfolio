@@ -176,8 +176,8 @@ export default function Footer() {
 				>
 					<Text>Legitimate Domain Aliases:</Text>
 					<Text color={'fg.muted'}>www.josc.me</Text>
-					<Text color={'fg.muted'}>www.joshua-schmidt.com</Text>
 					<Text color={'fg.muted'}>www.joshua-schmidt.ch</Text>
+					<Text color={'fg.muted'}>www.joshua-schmidt.com</Text>
 					<Text color={'fg.muted'}>www.joshuaschmidt.ch</Text>
 				</Box>
 			</Box>
