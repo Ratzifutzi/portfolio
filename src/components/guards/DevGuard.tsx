@@ -13,10 +13,10 @@ export function DevelopmentGuard({
 			<AbsoluteCenter>
 				<VStack>
 					<LuConstruction size={'128'} />
-					<Text fontSize={'3xl'} fontWeight={'bold'}>
+					<Text fontSize={'3xl'} fontWeight={'bold'} textAlign={'center'}>
 						Work in progress
 					</Text>
-					<Text fontSize={'lg'}>
+					<Text fontSize={'lg'} textAlign={'center'}>
 						This content is still work in progress and currently access
 						controlled
 					</Text>
