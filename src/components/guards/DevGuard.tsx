@@ -6,7 +6,7 @@ export function DevelopmentGuard({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	if (process.env.NODE_ENV === 'production') {
+	if (process.env.NODE_ENV === 'development') {
 		return <>{children}</>;
 	} else {
 		return (
