@@ -19,6 +19,7 @@ const COMPANIES: CompanyEntry[] = [
 		icon: IsonetIcon,
 		from: new Date('2025'),
 		until: 'Present',
+		path: '/work/isonet',
 	},
 	{
 		name: 'TurboTastico',
@@ -26,6 +27,7 @@ const COMPANIES: CompanyEntry[] = [
 		icon: TurboTasticoIcon,
 		from: new Date('2025'),
 		until: 'Present',
+		path: '/work/turbotastico',
 	},
 	{
 		name: 'Fly & Race',
