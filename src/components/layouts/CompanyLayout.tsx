@@ -1,6 +1,8 @@
 import { CompanyEntry } from '@/config/Companies';
-import { Box, Card } from '@chakra-ui/react';
+import { Badge, Box, Card, Text } from '@chakra-ui/react';
+import { InfoIcon } from 'lucide-react';
 import Image from 'next/image';
+import { Tooltip } from '../ui/tooltip';
 
 export default function CompanyLayout({
 	company,
@@ -30,7 +32,19 @@ export default function CompanyLayout({
 						<Card.Title fontSize={'4xl'}>{company.name}</Card.Title>
 					</Card.Header>
 					<Card.Body pt={2} color={'fg.muted'}>
-						{company.role}
+						<Text>
+							{company.role}{' '}
+							{company.until === 'Present' && (
+								<Badge colorPalette={'green'}>
+									Active
+									<Tooltip
+										content={`This is a current Position as ${company.role} at ${company.name}.`}
+									>
+										<InfoIcon size={12} />
+									</Tooltip>
+								</Badge>
+							)}
+						</Text>
 					</Card.Body>
 				</Card.Root>
 			</Box>
