@@ -1,9 +1,12 @@
 'use client';
 
+import COMPANIES from '@/config/Companies';
 import {
 	Box,
 	Image as ChakraImage,
+	Container,
 	HStack,
+	Link,
 	Span,
 	Text,
 	VStack,
@@ -12,9 +15,6 @@ import { SiLuau, SiReact, SiTypescript } from '@icons-pack/react-simple-icons';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import FlyAndRace from '../../public/logos/FlyAndRace.jpg';
-import Isonet from '../../public/logos/Isonet.ico';
-import Turbotastico from '../../public/logos/Turbotastico.png';
 import swissFlagIcon from '../../public/switzerland.svg';
 
 function TechnologyEntry({
@@ -48,46 +48,66 @@ function CompanyEntry({
 	role,
 	from,
 	until,
+	path,
 }: {
 	icon: StaticImport;
 	name: string;
 	role: string;
 	from: string;
 	until: string;
+	path?: string;
 }) {
 	return (
-		<Box display={'flex'} flexDir={'row'} alignItems={'start'} gap={2}>
-			<ChakraImage
-				asChild
+		<Link href={path}>
+			<Box
 				display={'flex'}
-				alignItems={'center'}
-				justifyItems={'center'}
-				borderRadius={'sm'}
-				overflow={'hidden'}
-				mt={1}
-				h={'20px'}
-				w={'20px'}
-				objectFit={'contain'}
+				flexDir={'row'}
+				alignItems={'start'}
+				gap={2}
+				cursor={path ? 'pointer' : ''}
 			>
-				<Image src={icon} alt={name + ' Logo'} height={20} width={20} />
-			</ChakraImage>
-			<VStack gap={0} alignItems={'start'}>
-				<Box
-					alignContent={'center'}
+				<ChakraImage
+					asChild
 					display={'flex'}
-					gap={1}
-					flexDir={{ base: 'column', sm: 'row' }}
+					alignItems={'center'}
+					justifyItems={'center'}
+					borderRadius={'sm'}
+					overflow={'hidden'}
+					mt={1}
+					h={'20px'}
+					w={'20px'}
+					objectFit={'contain'}
 				>
-					<Text>{name}</Text>
-					<Text color={'fg.muted'}>
-						{from} - {until}
+					<Image src={icon} alt={name + ' Logo'} height={20} width={20} />
+				</ChakraImage>
+				<VStack gap={0} alignItems={'start'}>
+					<Box
+						alignContent={'center'}
+						display={'flex'}
+						gap={1}
+						flexDir={{ base: 'column', sm: 'row' }}
+					>
+						{path ? (
+							<Text
+								textDecor={'underline'}
+								color={'primary'}
+								textUnderlineOffset={3}
+							>
+								{name}
+							</Text>
+						) : (
+							<Text>{name}</Text>
+						)}
+						<Text color={'fg.muted'}>
+							{from} - {until}
+						</Text>
+					</Box>
+					<Text fontSize={'sm'} color={'fg.muted'}>
+						{role}
 					</Text>
-				</Box>
-				<Text fontSize={'sm'} color={'fg.muted'}>
-					{role}
-				</Text>
-			</VStack>
-		</Box>
+				</VStack>
+			</Box>
+		</Link>
 	);
 }
 
@@ -206,27 +226,24 @@ export default function Home() {
 						borderTopRadius={{ sm: 'md', base: '0' }}
 					>
 						<Text mb={1}>Companies</Text>
-						<CompanyEntry
-							name="Isonet"
-							icon={Isonet}
-							role="Junior Web Developer"
-							from="2025"
-							until="Present"
-						/>
-						<CompanyEntry
-							name="Turbotastico"
-							icon={Turbotastico}
-							role="Lead Software Engineer"
-							from="2025"
-							until="Present"
-						/>
-						<CompanyEntry
-							name="Fly and Race"
-							icon={FlyAndRace}
-							role="Executive Assistant"
-							from="2023"
-							until="2025"
-						/>
+						{COMPANIES.map((value, index) => {
+							return (
+								<Container key={index} asChild>
+									<CompanyEntry
+										name={value.name}
+										icon={value.icon}
+										role={value.role}
+										from={value.from.getFullYear().toString()}
+										until={
+											value.until === 'Present'
+												? 'Present'
+												: value.until.getFullYear().toString()
+										}
+										path={value.path}
+									/>
+								</Container>
+							);
+						})}
 					</Box>
 				</Box>
 			</Box>

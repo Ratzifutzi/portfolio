@@ -14,7 +14,6 @@ function NavLink({ href, children }: NavLinkProps) {
 	const pathname = usePathname();
 	const isActive = pathname === href;
 
-	// Start at 0px, then grow to 4px over 0.3s for the active link
 	const thickness = isActive ? '4px' : '0px';
 
 	return (

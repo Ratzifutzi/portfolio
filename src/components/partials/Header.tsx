@@ -8,7 +8,8 @@ import NavLink from './header/NavLink';
 
 export default function Header() {
 	const pathname = usePathname();
-	const path = pathname.replaceAll('/', '');
+	const pathTiles = pathname.split('/');
+	const path = pathTiles[1];
 
 	return (
 		<>
@@ -49,7 +50,7 @@ export default function Header() {
 								}}
 								color={'primary'}
 							>
-								{path}
+								{path.toString()}
 							</Text>
 						</HStack>
 					</Link>
