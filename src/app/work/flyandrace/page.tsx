@@ -1,5 +1,11 @@
+import CompanyLayout from '@/components/layouts/CompanyLayout';
+import { GetCompanyByName } from '@/config/Companies';
 import { Text } from '@chakra-ui/react';
 
 export default function FlyAndRace() {
-	return <Text>Hi</Text>;
+	return (
+		<CompanyLayout company={GetCompanyByName('Fly & Race')}>
+			<Text>Hi</Text>
+		</CompanyLayout>
+	);
 }

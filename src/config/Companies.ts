@@ -31,18 +31,22 @@ const COMPANIES: CompanyEntry[] = [
 		name: 'Fly & Race',
 		role: 'Executive Assistant',
 		icon: FlyAndRaceIcon,
-		from: new Date('2024'),
+		from: new Date('2023'),
 		until: new Date('2025'),
 		path: '/work/flyandrace',
 	},
-	{
-		name: 'Fly & Race',
-		role: 'Flight Simulator Instructor',
-		icon: FlyAndRaceIcon,
-		from: new Date('2023'),
-		until: new Date('2024'),
-		path: '/work/flyandrace',
-	},
 ];
+
+export function GetCompanyByName(name: string): CompanyEntry {
+	const res = COMPANIES.find((value) => {
+		return value.name === name;
+	});
+
+	if (!res) {
+		throw Error('Company not found.');
+	}
+
+	return res;
+}
 
 export default COMPANIES;
