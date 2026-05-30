@@ -5,7 +5,7 @@ import { Text } from '@chakra-ui/react';
 export default function TurboTastico() {
 	return (
 		<CompanyLayout company={GetCompanyByName('TurboTastico')}>
-			<Text>Hi</Text>
+			<Text>WIP</Text>
 		</CompanyLayout>
 	);
 }

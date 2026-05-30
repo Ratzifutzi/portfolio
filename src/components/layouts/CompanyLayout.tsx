@@ -1,8 +1,9 @@
 import { CompanyEntry } from '@/config/Companies';
-import { Badge, Box, Card, Text } from '@chakra-ui/react';
-import { InfoIcon } from 'lucide-react';
+import { Badge, Box, Card, HStack, Link, Text } from '@chakra-ui/react';
+import { SiRoblox } from '@icons-pack/react-simple-icons';
+import { UserIcon } from 'lucide-react';
 import Image from 'next/image';
-import { Tooltip } from '../ui/tooltip';
+import { LuGlobe } from 'react-icons/lu';
 
 export default function CompanyLayout({
 	company,
@@ -32,19 +33,46 @@ export default function CompanyLayout({
 						<Card.Title fontSize={'4xl'}>{company.name}</Card.Title>
 					</Card.Header>
 					<Card.Body pt={2} color={'fg.muted'}>
-						<Text>
-							{company.role}{' '}
-							{company.until === 'Present' && (
-								<Badge colorPalette={'green'}>
-									Active
-									<Tooltip
-										content={`This is a current Position as ${company.role} at ${company.name}.`}
+						{company.description && (
+							<Text textAlign={'center'}>{company.description}</Text>
+						)}
+						{company.socials && (
+							<HStack justifyContent={'center'}>
+								{company.socials.website && (
+									<Link
+										href={company.socials.website}
+										target="_blank"
+										borderBottom={'1px solid'}
+										color={'primary'}
+										fontSize={'sm'}
 									>
-										<InfoIcon size={12} />
-									</Tooltip>
-								</Badge>
-							)}
-						</Text>
+										<LuGlobe />
+										Website
+									</Link>
+								)}
+								{company.socials.roblox && (
+									<Link
+										href={company.socials.roblox}
+										target="_blank"
+										borderBottom={'1px solid'}
+										color={'primary'}
+										fontSize={'sm'}
+									>
+										<SiRoblox size={16} />
+										Roblox
+									</Link>
+								)}
+							</HStack>
+						)}
+						<HStack justify={'center'} mt={3}>
+							<UserIcon />
+							<Text>
+								{company.role}{' '}
+								{company.until === 'Present' && (
+									<Badge colorPalette={'green'}>Current Position</Badge>
+								)}
+							</Text>
+						</HStack>
 					</Card.Body>
 				</Card.Root>
 			</Box>
