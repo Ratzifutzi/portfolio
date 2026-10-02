@@ -5,7 +5,7 @@ import { Text } from '@chakra-ui/react';
 export default function Isonet() {
 	return (
 		<CompanyLayout company={GetCompanyByName('Isonet')}>
-			<Text>Hi</Text>
+			<Text>WIP</Text>
 		</CompanyLayout>
 	);
 }
